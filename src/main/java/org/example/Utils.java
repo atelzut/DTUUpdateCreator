@@ -35,7 +35,7 @@ public class Utils {
 
 
     public static void UpdateCreator(List<DbElement> list, BufferedWriter writer) throws IOException {
-        String a = "update dtutalloggioprivato_aud_backup set attivodal = '%s' where idObj=%s and rev=%s;\n";
+        String a = "UPDATE dtutalloggioprivato_aud SET attivodal = '%s' where idObj=%s and rev=%s;\n";
         Collections.sort(list);
 
         Date dia = list.get(0).getDataInizioAttivita();
@@ -47,7 +47,6 @@ public class Utils {
             }
             String str= String.format(a, dateFormatter(dia), d.getIdObj(), d.getRev());
             writer.write(str);
-            System.out.println(str);
             if (d.getDatafineAttivita() != null) {
                 change = true;
             }
